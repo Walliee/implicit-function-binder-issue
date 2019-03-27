@@ -25,6 +25,11 @@ public class ImplicitFunctionBinderIssueApplication {
 		};
 	}
 
+	@Bean
+	public String field() {
+		return "value";
+	}
+
 	@Component
 	public static class StringSuppiler implements Supplier<String> {
 		private String field;
@@ -35,7 +40,7 @@ public class ImplicitFunctionBinderIssueApplication {
 
 		@Override
 		public String get() {
-			return null;
+			return field;
 		}
 	}
 }
